@@ -2,15 +2,8 @@
 {
     partial class Schedule
     {
-        /// <summary>
-        /// Обязательная переменная конструктора.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Освободить все используемые ресурсы.
-        /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -19,13 +12,7 @@
             }
             base.Dispose(disposing);
         }
-        
-        #region Код, автоматически созданный конструктором форм Windows
 
-        /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
-        /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
@@ -51,10 +38,14 @@
             this.zedGraph.ScrollMinY2 = 0D;
             this.zedGraph.Size = new System.Drawing.Size(865, 441);
             this.zedGraph.TabIndex = 0;
+            this.zedGraph.UseExtendedPrintDialog = true;
+            this.zedGraph.GraphPane.Title.Text = "Аппроксимация функции f(x) многочленом Ln(x)";
+            this.zedGraph.GraphPane.XAxis.Title.Text = "X";
+            this.zedGraph.GraphPane.YAxis.Title.Text = "Y";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(472, 12);
+            this.button1.Location = new System.Drawing.Point(12, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(52, 23);
             this.button1.TabIndex = 1;
@@ -64,7 +55,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(542, 12);
+            this.button2.Location = new System.Drawing.Point(70, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(52, 23);
             this.button2.TabIndex = 2;
@@ -74,7 +65,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(617, 12);
+            this.button3.Location = new System.Drawing.Point(128, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(52, 23);
             this.button3.TabIndex = 3;
@@ -108,8 +99,6 @@
 
         }
 
-        #endregion
-
         private ZedGraph.ZedGraphControl zedGraph;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -117,4 +106,3 @@
         private System.Windows.Forms.Button button4;
     }
 }
-

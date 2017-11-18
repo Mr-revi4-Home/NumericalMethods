@@ -8,36 +8,36 @@ namespace Lab2_2a
     {
         public Schedule()
         {
-            InitializeComponent();            
-        }        
+            InitializeComponent();
+        }
 
-        public void DrawGraph() //функция прорисовки графика
+        public void DrawGraph()
         {
             LagrangePolynomial lagrangePolynomial = new LagrangePolynomial();
 
-            GraphPane pane = zedGraph.GraphPane; //создание холста
+            GraphPane pane = zedGraph.GraphPane;
 
-            pane.CurveList.Clear();   //очистка холста
+            pane.CurveList.Clear();
 
-            PointPairList listF = new PointPairList(); //объявление массивов точек для рисования 
-            PointPairList listL = new PointPairList();            
+            PointPairList listF = new PointPairList();
+            PointPairList listL = new PointPairList();
 
-            for (double x = LagrangePolynomial.xmin; x <= LagrangePolynomial.xmax; x += 0.01) //добавление в первый массив точек исходной функции f(x)
-                listF.Add(x, lagrangePolynomial.f(x));            
-            
-            double[] x_v = new double[(int)n + 1]; // два массива вспомогательных для точек апроксимируемой функции
+            for (double x = LagrangePolynomial.XMIN; x <= LagrangePolynomial.XMAX; x += 0.01)
+                listF.Add(x, lagrangePolynomial.F(x));
+
+            double[] x_v = new double[(int)n + 1];
             double[] y_v = new double[(int)n + 1];
             double h = 2 / n;
 
-            for (int i = 0; i <= n; i++) // заполнение массивов точками апроксимируемой функции
+            for (int i = 0; i <= n; i++)
             {
                 x_v[i] = -1 + (i * h);
-                y_v[i] = lagrangePolynomial.f(x_v[i]);
+                y_v[i] = lagrangePolynomial.F(x_v[i]);
             }
-            for (double s = LagrangePolynomial.xmin; s <= LagrangePolynomial.xmax; s += 1 / (n * 2))
-                listL.Add(s, lagrangePolynomial.L(s, x_v, y_v, (int)n + 1)); // заполнение массива точками для рисования 
+            for (double s = LagrangePolynomial.XMIN; s <= LagrangePolynomial.XMAX; s += 1 / (n * 2))
+                listL.Add(s, lagrangePolynomial.L(s, x_v, y_v, (int)n + 1));
 
-            LineItem CurveF = pane.AddCurve("f(x)", listF, Color.DarkRed, SymbolType.None); // рисование графиков
+            LineItem CurveF = pane.AddCurve("f(x)", listF, Color.DarkRed, SymbolType.None);
             LineItem CurveL = pane.AddCurve("F(x)", listL, Color.Green, SymbolType.None);
 
             zedGraph.AxisChange();
