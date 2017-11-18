@@ -23,8 +23,8 @@ namespace Lab2_2b
             PointPairList listF = new PointPairList();
             PointPairList listL = new PointPairList();            
 
-            for (double x = LagrangePolynomial.xmin; x <= LagrangePolynomial.xmax; x += 0.01)
-                listF.Add(x, lagrangePolynomial.f(x));
+            for (double x = LagrangePolynomial.XMIN; x <= LagrangePolynomial.XMAX; x += 0.01)
+                listF.Add(x, lagrangePolynomial.F(x));
 
             double N = 2 * (n + 1);
             
@@ -34,9 +34,9 @@ namespace Lab2_2b
             for (int i = 0; i <= n; i++)
             {
                 x_v[i] = Math.Cos((2 * i + 1) * Math.PI / N);
-                y_v[i] = lagrangePolynomial.f(x_v[i]);
+                y_v[i] = lagrangePolynomial.F(x_v[i]);
             }
-            for (double s = LagrangePolynomial.xmin; s <= LagrangePolynomial.xmax; s += 1 / (n * 2))
+            for (double s = LagrangePolynomial.XMIN; s <= LagrangePolynomial.XMAX; s += 1 / (n * 2))
                 listL.Add(s, lagrangePolynomial.L(s, x_v, y_v, (int)n + 1));
 
             LineItem CurveF = pane.AddCurve("f(x)", listF, Color.Blue, SymbolType.None);
