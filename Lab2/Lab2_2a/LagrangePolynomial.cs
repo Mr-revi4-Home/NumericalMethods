@@ -22,11 +22,13 @@
 
         public double F(double x)
         {
-            double d = 7.0;
+            double d = 17.0;
             return 1 / (1 + d * x * x);
         }
 
         public const double XMIN = -1;
         public const double XMAX = 1;
+
+        public int n;
     }
 }
