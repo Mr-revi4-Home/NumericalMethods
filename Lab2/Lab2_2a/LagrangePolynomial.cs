@@ -22,7 +22,7 @@
 
         public double F(double x)
         {
-            double d = 21.0;
+            double d = 7.0;
             return 1 / (1 + d * x * x);
         }
 
