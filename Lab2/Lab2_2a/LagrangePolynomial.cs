@@ -2,7 +2,7 @@
 {
     class LagrangePolynomial
     {
-        public double L(double x, double[] x_values, double[] y_values, int size)
+        public double L(double x, double[] x_values, double[] y_values, int size) // Реализация интерполяционного полинома Лашранжа
         {
             double lagrange_pol = 0;
             double basics_pol;
@@ -20,13 +20,13 @@
             return lagrange_pol;
         }
 
-        public double F(double x)
+        public double F(double x) //Апроксимируемая функция 
         {
             double d = 17.0;
             return 1 / (1 + d * x * x);
         }
 
-        public const double XMIN = -1;
+        public const double XMIN = -1; //[-1;1]
         public const double XMAX = 1;
 
         public int n;
